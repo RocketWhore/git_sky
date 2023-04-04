@@ -3,21 +3,42 @@ import json
 from datetime import datetime
 
 def get_data():
+    '''
+
+    :return:
+    '''
     with open('operations.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
     return data
 
 def get_filtered_data(data, filtred_empty_from):
+    '''
+
+    :param data:
+    :param filtred_empty_from:
+    :return:
+    '''
     data = [x for x in data if 'state' in x and x['state'] == 'EXECUTED']
     if filtred_empty_from:
         data = [x for x in data if 'from' in x]
     return data
 
 def get_last_values(data, COUNT_VALUES):
+    '''
+
+    :param data:
+    :param COUNT_VALUES:
+    :return:
+    '''
     deta = sorted(data, key=lambda x: x['date'], reverse=True)
     return data[:COUNT_VALUES]
 
 def get_formated_data(data):
+    '''
+
+    :param data:
+    :return:
+    '''
     formated_data = []
     for row in data:
         date = datetime.strptime(row['date'], '%Y-%m-%dT%H:%M:%S.%f').strftime('%d.%m.%Y')
@@ -38,7 +59,7 @@ def get_formated_data(data):
 {date} {desccription}
 {from_info} {from_bill} -> {to_info} {recipient_bill}
 {amount}
-        """)
+""")
     return formated_data
 
 

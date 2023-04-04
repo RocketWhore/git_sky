@@ -5,10 +5,14 @@ def main():
     COUNT_VALUES = 5
     FILTRED_EMPTY_FROM = True
 
+    # получаем данные
     data = get_data()
+    # фильтруем данные
     data = get_filtered_data(data, FILTRED_EMPTY_FROM)
     print(data)
+    #
     data = get_last_values(data, COUNT_VALUES)
+    #
     data = get_formated_data(data)
 
 
