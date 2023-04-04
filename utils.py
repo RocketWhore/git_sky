@@ -5,7 +5,7 @@ from datetime import datetime
 def get_data():
     '''
 
-    :return:
+    :return: данные в формате list
     '''
     with open('operations.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -14,8 +14,8 @@ def get_data():
 def get_filtered_data(data, filtred_empty_from):
     '''
 
-    :param data:
-    :param filtred_empty_from:
+    :param data: данные в формате list
+    :param filtred_empty_from: наличие from (T/F)
     :return:
     '''
     data = [x for x in data if 'state' in x and x['state'] == 'EXECUTED']
@@ -26,8 +26,8 @@ def get_filtered_data(data, filtred_empty_from):
 def get_last_values(data, COUNT_VALUES):
     '''
 
-    :param data:
-    :param COUNT_VALUES:
+    :param data: данные под сортировку
+    :param COUNT_VALUES: количество операций
     :return:
     '''
     deta = sorted(data, key=lambda x: x['date'], reverse=True)
@@ -36,7 +36,7 @@ def get_last_values(data, COUNT_VALUES):
 def get_formated_data(data):
     '''
 
-    :param data:
+    :param data: отсортированные данные для форматирования и вывода
     :return:
     '''
     formated_data = []
