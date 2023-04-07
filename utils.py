@@ -1,6 +1,7 @@
 import json
-#from pprint import pprint
+# from pprint import pprint
 from datetime import datetime
+
 
 def get_data():
     '''
@@ -11,6 +12,7 @@ def get_data():
         data = json.load(file)
     return data
 
+
 def get_filtered_data(data, filtred_empty_from):
     '''
 
@@ -20,8 +22,10 @@ def get_filtered_data(data, filtred_empty_from):
     '''
     data = [x for x in data if 'state' in x and x['state'] == 'EXECUTED']
     if filtred_empty_from:
-        data = [x for x in data if 'from' in x]
+        data = [x for x in data if
+                'from' in x]  # в файле main.py установлен флажок False, поэтому этот кусок кода не работает.
     return data
+
 
 def get_last_values(data, COUNT_VALUES):
     '''
@@ -32,6 +36,7 @@ def get_last_values(data, COUNT_VALUES):
     '''
     deta = sorted(data, key=lambda x: x['date'], reverse=True)
     return data[:COUNT_VALUES]
+
 
 def get_formated_data(data):
     '''
@@ -61,5 +66,3 @@ def get_formated_data(data):
 {amount}
 """)
     return formated_data
-
-
