@@ -21,8 +21,8 @@ def get_filtered_data(data, COUNT_VALUES):
     :return:
     '''
     data = [x for x in data if x.get('state') == 'EXECUTED']
+    data = sorted(data, key=lambda x: x['date'], reverse=True)
 
-    print(data)
     return data[:COUNT_VALUES]
 
 
