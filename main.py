@@ -7,7 +7,7 @@ def main():
     # получаем данные
     data = get_data()
     # фильтруем данные
-    data = get_filtered_data(data, COUNT_VALUES)
+    data = get_filtered_data(data)
 
     # получаем последние 5 операций
  #  data = get_last_values(data, COUNT_VALUES)

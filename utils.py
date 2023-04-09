@@ -51,7 +51,6 @@ def get_formated_data(data_):
             from_ = ''
 
         to_ = mask_card(x.get('to'))
-
         print(f'{formated_data} {x["description"]}\n'
               f'{from_}{to_}\n'
               f'{x["operationAmount"]["amount"]} {x["operationAmount"]["currency"]["name"]}\n')
