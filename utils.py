@@ -13,7 +13,7 @@ def get_data():
     return data
 
 
-def get_filtered_data(data, COUNT_VALUES):
+def get_filtered_data(data):
     '''
 
     :param data: данные в формате list
@@ -23,7 +23,7 @@ def get_filtered_data(data, COUNT_VALUES):
     data = [x for x in data if x.get('state') == 'EXECUTED']
     data = sorted(data, key=lambda x: x['date'], reverse=True)
 
-    return data[:COUNT_VALUES]
+    return data[:5]
 
 
 

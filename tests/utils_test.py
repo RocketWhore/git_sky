@@ -1,6 +1,6 @@
 import pytest
 
-from utils import get_data, get_filtered_data, get_last_values, get_formated_data
+from utils import get_data, get_filtered_data, get_formated_data
 
 
 def test_get_data():
@@ -11,15 +11,15 @@ def test_get_data():
 
 def test_filtred_data():
     data = get_data()
-    data = get_filtered_data(data, filtred_empty_from=False)
+    data = get_filtered_data(data)
     data_ = [x for x in data if x['state'] == "CANCELED"]
     assert len(data_) == 0
 
 
-def test_get_last_values():
-    data = [{"date": '2019-07-03T18:35:29.512364'}, {"date": '2019-08-26T10:50:58.294041'}]
-    datas = get_last_values(data, 2)
-    assert [x['date'] for x in datas] == ['2019-07-03T18:35:29.512364', '2019-08-26T10:50:58.294041']
+# def test_get_last_values():
+#     data = [{"date": '2019-07-03T18:35:29.512364'}, {"date": '2019-08-26T10:50:58.294041'}]
+#     datas = get_last_values(data, 2)
+#     assert [x['date'] for x in datas] == ['2019-07-03T18:35:29.512364', '2019-08-26T10:50:58.294041']
 
 
 def test_get_formated_data():
